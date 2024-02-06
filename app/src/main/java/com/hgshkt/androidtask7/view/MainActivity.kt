@@ -10,7 +10,8 @@ import com.hgshkt.androidtask7.viewModel.MainViewModel
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var button: Button
+    private lateinit var plusButton: Button
+    private lateinit var minusButton: Button
     private lateinit var textView: TextView
 
     private lateinit var viewModel: MainViewModel
@@ -24,13 +25,18 @@ class MainActivity : AppCompatActivity() {
             textView.text = it.toString()
         }
 
-        button.setOnClickListener {
+        plusButton.setOnClickListener {
             viewModel.add()
+        }
+
+        minusButton.setOnClickListener {
+            viewModel.decrease()
         }
     }
 
     private fun init() {
-        button = findViewById(R.id.button)
+        plusButton = findViewById(R.id.plusButton)
+        minusButton = findViewById(R.id.minusButton)
         textView = findViewById(R.id.textView)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
     }
