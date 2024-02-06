@@ -14,4 +14,9 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
         model.add()
         numberLiveData.value = model.get()
     }
+
+    fun decrease() {
+        model.decrease()
+        numberLiveData.value = model.get()
+    }
 }
