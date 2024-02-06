@@ -5,7 +5,7 @@ import android.content.SharedPreferences
 
 class NumberModelImpl(
     context: Context
-): NumberModel {
+) : NumberModel {
 
     private var sharedPreferences: SharedPreferences
 
@@ -20,8 +20,21 @@ class NumberModelImpl(
     override fun get() = sharedPreferences.getInt(key, defValue)
 
     override fun add() {
+        action { number ->
+            number + 1
+        }
+    }
+
+    override fun decrease() {
+        action { number ->
+            number - 1
+        }
+    }
+
+    private fun action(operation: (number: Int) -> Int) {
         var number = get()
-        number++
+
+        number = operation(number)
 
         sharedPreferences.edit()
             .putInt(key, number)
