@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.hgshkt.androidtask7"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.hgshkt.androidtask7"
